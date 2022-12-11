@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        input
+        {
+            margin-right: 10px;
+            font-size: 20px;
+            padding-left: -10px;
+            height: 50px;
+            border-radius: 10px;
+        }
+        body
+        {
+            background: #94cdde;
+        }
+        *{box-sizing:border-box;}
+        .calculator
+        {
+            width: 100%;
+            max-width: 300px;
+            margin: 50px auto;
+            border-radius: 10px; overflow: hidden;
+            box-shadow: 0 0 5px #999999;
+        }
+        .screen
+        {
+            background-color: orange;
+            width: 100%;
+            min-height: 100px;
+            text-align: right;
+            font-size: 24px;
+            padding: 10px;
+            padding-top: 20px;
+        }
+        .cal-buttons
+        {
+            background: #ffffff;
+            padding: 5px;
+            padding-right: 30px;
+        }
+        ul#buttons
+        {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        ul#buttons li
+        {
+            font-size: 24px;
+            color: #000000;
+            background: #ecedef;
+            width: 20%;
+            margin:5px 2.5%;
+            padding-top: 11px;
+            height: 50px;
+            border-radius: 50%;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        ul#buttons 
+        li:hover,
+        ul
+        #buttons 
+        li:visited
+        {
+            background: #777777;
+            color: #ffffff;
+        }
+        li:active
+        {
+            background: #000000;
+        }
+        #equals
+        {
+            width: 100% !important;
+            border-radius: 10px !important;
+        }
+        h3
+        {
+            margin-right: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="screen">
+            <h3>CALCULATOR</h3>
+            <h6>Designed by Hemant Gupta</h6>
+            <input type="text" name="" id="i1" placeholder="0">
+            </div>
+            <div class="cal-buttons">
+                <ul id="buttons">
+                <li onclick="show('1')">1</li>
+                <li onclick="show('2')">2</li>
+                <li onclick="show('3')">3</li>
+                <li id="clear" onclick="alclr('AL')">AL</li>
+                <li onclick="show('4')">4</li>
+                <li onclick="show('5')">5</li>
+                <li onclick="show('6')">6</li>
+                <li onclick="show('+')">+</li>
+                <li onclick="show('7')">7</li>
+                <li onclick="show('8')">8</li>
+                <li onclick="show('9')">9</li>
+                <li onclick="clr()">C</li>
+                <li onclick="show('-')">-</li>
+                <li onclick="show('0')">0</li>
+                <li onclick="show('*')">x</li>
+                <li onclick="show('.')">.</li>
+                <li onclick="show('/')">÷</li>
+                <li onclick="show('**')">X<sup>2</sup></li>
+                <li id="equals" onclick="res('=')">=</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function alclr()
+        {
+            document.getElementById("i1").value=null;
+        }
+        function clr()
+        {
+            var v=document.getElementById("i1").value;
+            v=v.substring(0,v.length-1);
+            document.getElementById("i1").value=v;
+        }
+        function show(n)
+        {
+            var v=document.getElementById("i1").value;
+            document.getElementById("i1").value=v+n;
+        }
+        function res()
+        {
+            var v=document.getElementById("i1").value;
+           document.getElementById("i1").value=eval(v)
+        }
+    </script>
+</body>
+</html>
